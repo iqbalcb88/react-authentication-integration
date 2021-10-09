@@ -1,9 +1,12 @@
 import React from 'react';
+import useAuth from '../../hooks/useAuth';
 
 const Home = () => {
+  const { user } = useAuth();
   return (
     <div>
-      <h2>Im home</h2>
+      <h2>WelCome</h2>
+      <h4>{user.displayName}</h4>
     </div>
   );
 };

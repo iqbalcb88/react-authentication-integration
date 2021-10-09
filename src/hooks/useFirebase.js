@@ -36,7 +36,8 @@ const useFirebase = () => {
   const signInUsingGitHub = () => {
     signInWithPopup(auth, gitHubProvider)
       .then((result) => {
-        setUser(result.user);
+        console.log('githubdata', result.user.providerData[0]);
+        setUser(result.user.providerData[0]);
       })
       .catch((error) => {
         setError(error.message);
@@ -54,7 +55,7 @@ const useFirebase = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log('load user sideeffect', user);
+        console.log('load user sideEffect', user);
         setUser(user);
       } else {
         console.log('UserSignedOut');
